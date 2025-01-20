@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.Smile" parent="android:Theme.Material.Light.NoActionBar" >
+        <item name="android:statusBarColor">#090909</item>
+        <item name="android:windowBackground">"#090909"</item>
+    </style>
+
+</resources>
