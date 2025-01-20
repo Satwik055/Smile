@@ -149,18 +149,19 @@ private suspend fun establishSocketConnection(host: String, port: Int, retryInte
     while (true) {
         try {
             if (socket?.isConnected != true) {
-                println("Attempting to connect...")
+                println("Attempting to connect with remote")
                 socket = Socket()
                 withContext(Dispatchers.IO) {
                     socket.connect(InetSocketAddress(host, port), 2000)
                 }
                 if (socket.isConnected) {
-                    println("Connected successfully!")
+                    println("Connected")
                     return socket
                 }
             }
         } catch (e: Exception) {
-            println("Failed to connect. Retrying in ${retryInterval/1000} seconds...")
+            println("Failed")
+            println("Retrying in ${retryInterval/1000} seconds...")
         }
         delay(retryInterval)
     }

