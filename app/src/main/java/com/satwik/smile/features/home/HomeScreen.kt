@@ -8,10 +8,12 @@ import androidx.compose.foundation.horizontalScroll
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -37,7 +39,13 @@ import java.io.PrintStream
 
 @Composable
 fun HomeScreen(modifier: Modifier = Modifier) {
-    Content()
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+    ){
+        Content()
+    }
 }
 
 @Composable
@@ -47,10 +55,10 @@ private fun Content(modifier: Modifier = Modifier) {
             .fillMaxSize()
             .padding(horizontal = 16.dp), horizontalAlignment = Alignment.CenterHorizontally,
     ) {
-        Text(text = "Smile.",modifier = Modifier.align(Alignment.CenterHorizontally),fontFamily = fontFamily, fontSize = 31.sp, color = Color.White, fontWeight = FontWeight.SemiBold)
+        Text(text = "SMILE.",modifier = Modifier.align(Alignment.CenterHorizontally),fontFamily = fontFamily, fontSize = 31.sp, color = Color.White, fontWeight = FontWeight.SemiBold)
         Spacer(modifier = Modifier.height(28.dp))
         
-        Icon(painter = painterResource(id = R.drawable.ic_smile), contentDescription = null, tint = Color.White)
+        Icon(modifier = modifier.size(110.dp),painter = painterResource(id = R.drawable.smilepixel), contentDescription = null, tint = Color.White)
 
         Spacer(modifier = Modifier.height(28.dp))
 
@@ -74,8 +82,8 @@ private fun Content(modifier: Modifier = Modifier) {
 
         Spacer(modifier = Modifier.height(28.dp))
 
-
         LogsBox()
+
 
     }
 
@@ -97,20 +105,14 @@ fun ConnectionInfoBox(modifier: Modifier = Modifier, status:String, remoteIP:Str
 @Composable
 fun LogsBox(modifier: Modifier = Modifier) {
     Column (
-        modifier = Modifier.border(width = 1.dp, color = Color.Gray)
+        modifier = Modifier
+            .border(width = 1.dp, color = Color.Gray)
+            .fillMaxHeight()
     ){
-        Box (modifier = modifier
+        Text(text = "LOGS",fontFamily = fontFamily, fontSize = 16.sp, color = Color.Black, fontWeight = FontWeight.SemiBold, modifier = modifier
+            .background(color = Color.White)
             .fillMaxWidth()
-            .background(Color.White)
-            .padding(horizontal = 16.dp, vertical = 6.dp)
-        ){
-            Text(text = "LOGS",fontFamily = fontFamily, fontSize = 16.sp, color = Color.Black, fontWeight = FontWeight.SemiBold)
-        }
-
-        Box (modifier = modifier
-            .fillMaxWidth()
-            .padding(horizontal = 16.dp, vertical = 6.dp)
-        )
+            .padding(vertical = 5.dp, horizontal = 10.dp))
         PrintlnMessagesView()
 
     }
@@ -155,12 +157,11 @@ fun PrintlnMessagesView() {
         scrollState.animateScrollTo(scrollState.maxValue) // Scroll to the bottom
     }
     Text(
-        text = messages.value,fontFamily = fontFamily, fontSize = 14.sp, color = Color.White, fontWeight = FontWeight.Normal,
+        text = messages.value,fontFamily = fontFamily, fontSize = 12.sp, color = Color.Green, fontWeight = FontWeight.Normal,
         modifier = Modifier
             .fillMaxWidth()
-            .height(200.dp)
             .verticalScroll(scrollState)
-
+            .padding(horizontal = 10.dp, vertical = 5.dp)
     )
 }
 
