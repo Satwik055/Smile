@@ -1,3 +1,5 @@
+<img width="2078" height="372" alt="image" src="https://github.com/user-attachments/assets/4cfdd815-e54d-43f3-bd71-6478c5609204" />
+
 # Smile
 
 An Android remote administration tool that allows a remote shell session to be obtained on the target device.
